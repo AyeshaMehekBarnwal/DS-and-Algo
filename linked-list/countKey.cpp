@@ -7,8 +7,6 @@ struct Node
 	Node *next;
 };
 
-int freq = 0;
-
 Node * GetNode(int newData)
 {
 	Node *newNode = new Node();
@@ -57,9 +55,9 @@ int countKey(Node *head, int key)
 int countKeyRcr(Node *head, int key)
 {
 	if(head == NULL)
-		return freq;
+		return 0;
 	if(head->data == key)
-		freq++;
+		return 1 + countKey(head->next, key);
 	return countKey(head->next, key);
 }
 
